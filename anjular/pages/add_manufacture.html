@@ -1,0 +1,21 @@
+<div class="container text-center">
+	<h1>Add Manufacture</h1>
+	<form name="manu_form"   ng-submit="submit()">
+
+		<div class="form-section">
+			<input placeholder="Manufacture's Name" type="text" name="st_manufacture" list="st_manufacture" class="form-fields" ng-model="st_manufacture" ng-required="true" />
+
+
+			<datalist id="st_manufacture">
+				<option ng-repeat=" name in manu_names">{{name}}</option>
+			</datalist>
+		</div>
+		<div class="form-section" ng-if="statusMessage">
+			<p class="status status-{{statusClass}}">{{statusMessage}}</p>
+		</div>
+		<div class="form-section">
+			<button type="submit" value="Save" ng-disabled="signup_form.$invalid">Submit</button>
+		</div>
+		
+	</form>
+</div>

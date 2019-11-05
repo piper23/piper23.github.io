@@ -1,0 +1,78 @@
+<div class="container text-center">
+	<h1>Add Car Model</h1>
+	
+	<form  name="manu_form"   ng-submit="submit()" file-upload="options" 
+	enctype="multipart/form-data" >
+	<div class="form-section form-section-inline">
+		<label>Model Name</label>
+		<input placeholder="Model Name" class="form-fields" type="text"  ng-model="form.st_model" ng-required="true" name="st_model">
+	</div>
+	<div class="form-section form-section-inline">
+		<label>Select Manufacturer</label>
+		<select class="form-fields"  ng-model="form.st_manufacture"  ng-required="true" name="st_manufacture" >
+			<option  selected="selected">Select One</option>
+			<option ng-repeat="man_name_holder in manufa" value="{{man_name_holder.man_id}}" >{{man_name_holder.man_name}}</option>
+		</select>
+	</div>
+
+	<div class="clear"></div>
+	<div class="form-section form-section-inline">
+		<label>Car Color</label>
+		<input type="text" name="st_color" ng-model="form.st_color" class="form-fields" ng-required="true" >
+	</div>
+	<div class="form-section form-section-inline">
+		<label>Manufacture Year</label>
+		<input type="text" name="dt_manu_year" ng-model="form.dt_manu_year" class="form-fields" ng-required="true" >
+	</div>
+	<div class="clear"></div>
+	<div class="form-section form-section-inline">
+		<label>Registration Number</label>
+		<input type="text" name="st_regNo" ng-model="form.st_regNo" class="form-fields" ng-required="true" >
+	</div>
+	<div class="form-section form-section-inline">
+		<label>Note</label>
+		<textarea name="form.st_model_note" ng-model="form.st_model_note" class="form-fields" ng-required="true" ></textarea>
+	</div>
+	
+	{{form.st_imageName}}
+	<div class="clear"></div>
+
+
+
+	<div class="form-section form-section-inline">
+
+		<span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
+			<i class="glyphicon glyphicon-plus"></i>
+			<span>Add Images</span>
+			<input id="fileupload" type="file" name="files" 
+			data-url="customs/uploadfiles.php"
+			data-sequential-uploads="true"
+			data-form-data='{"script": "true"}'>
+		</span>
+	</div>
+
+	<div class="form-section form-section-inline">
+		<div id="progress">
+		
+		</div>
+		<p id="imageNameShow"></p>
+	</div>
+
+	<div class="form-section" ng-if="statusMessage">
+		<p class="status status-{{statusClass}}">{{statusMessage}}</p>
+	</div>
+
+
+	<div class="form-section">
+		<div id="fileshidden">
+		</div>
+		<button type="submit" value="Save" ng-disabled="signup_form.$invalid">Submit</button>
+	</div>
+
+	<div class="clear"></div>
+
+</form>
+
+
+
+</div>
